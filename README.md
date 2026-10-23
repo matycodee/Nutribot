@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Agente Inteligente Local para NutriFit Chile 🤖💪
 
@@ -24,3 +25,33 @@ El agente fue diseñado priorizando la privacidad de los datos de la empresa y l
 3. Descargar el modelo base ejecutando en la terminal:
    ```bash
    ollama pull llama3.1
+=======
+# NutriBot - Agente Funcional de Soporte Organizacional
+
+Este repositorio contiene la implementación de "NutriBot", un agente de Inteligencia Artificial desarrollado para la Evaluación Parcial 2 (ISY0101). El agente asiste a ejecutivos de soporte de NutriFit Chile respondiendo consultas basadas en una base de conocimientos y registrando tickets de soporte de manera autónoma.
+
+## Arquitectura y Orquestación de Componentes
+
+El agente fue construido utilizando **LangGraph** (la evolución de LangChain Agents) para garantizar un flujo de trabajo cíclico, escalable y con retención de contexto (memoria). 
+
+### Diagrama de Flujo (Orquestación)
+1. **Entrada de Usuario**: El ejecutivo de soporte ingresa una consulta (ej. "Precio del Omega 3" o "Registrar queja por falta de stock").
+2. **Memoria (MemorySaver)**: LangGraph inyecta el historial de la conversación (Thread) para mantener el contexto en interacciones prolongadas.
+3. **LLM Core (GPT-3.5)**: El motor de OpenAI razona sobre el *System Prompt* y decide qué herramienta utilizar basado en la intención del usuario.
+4. **Ejecución de Herramientas**:
+   - **`consultar_base_datos`**: Herramienta RAG acoplada a ChromaDB y OpenAI Embeddings. Recupera normativas (PDF) e inventario (TXT).
+   - **`registrar_ticket`**: Herramienta de escritura que anexa reclamos directamente en un archivo local `tickets_soporte.txt`.
+5. **Respuesta**: El agente sintetiza la información obtenida de las herramientas y responde al ejecutivo.
+
+## Requisitos Previos
+
+- Python 3.10 o superior.
+- Credencial de OpenAI (API Key).
+
+## Instrucciones de Ejecución
+
+1. **Instalar Dependencias**:
+   Asegúrese de instalar las librerías necesarias ejecutando en la terminal:
+   ```bash
+   pip install -r requirements.txt
+>>>>>>> 292b8e6 (Versión final NutriBot lista para Evaluación 2 y grabación)
