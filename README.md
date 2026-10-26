@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 # Agente Inteligente Local para NutriFit Chile 🤖💪
 
